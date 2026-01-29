@@ -1,39 +1,55 @@
-Markdown
-
-```
 # 🐚 Shell Scripting & Linux Administration Notes
 
 ### **1. Node Health Monitoring Script**
+
 This script is a standard way to monitor the health of a Linux server (Node) by checking CPU, Memory, and Disk usage.
 
 ```bash
+
 #!/bin/bash
+
 #################################
+
 # Author : Anil Amrute
-# Date   : 28/01/2026
+
+# Date   : 28/01/2026
+
 #
+
 # Description: This script outputs system node health metrics.
-# Version    : v1
+
+# Version    : v1
+
 ###################################
 
 # --- Best Practice: Debugging and Error Handling ---
+
 set -x # Debug mode: Prints each command before execution.
+
 set -e # Exit immediately if a command exits with a non-zero status.
+
 set -o pipefail # Prevents errors in a pipeline from being masked.
 
 echo "--- Disk Space Usage ---"
+
 df -h # -h: Human-readable format (GB/MB).
 
 echo "--- Memory (RAM) Usage ---"
+
 free -g # -g: Output in Gigabytes.
 
 echo "--- CPU Count ---"
+
 nproc # Displays the number of available processing units.
 
 echo "--- Finding Jenkins Process IDs ---"
+
 # ps -ef: Lists all running processes.
+
 # grep: Filters for Jenkins.
+
 # awk: Extracts the 2nd column (Process ID).
+
 ps -ef | grep "jenkins" | awk '{print $2}'
 
 ```
